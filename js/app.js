@@ -53,11 +53,12 @@ function handleClick(evt) {
 function render() {
   squareEls.forEach(function (num, idx) {
     if (board[idx] === 1) {
-      num.textContent = "x";
+      num.style.backgroundColor = "black";
     } else if (board[idx] === -1) {
-      num.textContent = "o";
+      num.style.backgroundColor = "antiquewhite";
     } else if (board[idx] === null) {
       num.textContent = "";
+      num.style.backgroundColor = 'rgb(77, 137, 84)'
     }
   });
   messageEl.textContent = `Player ${turn === 1 ? "1" : "2"}, your move`;
