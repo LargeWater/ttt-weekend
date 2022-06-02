@@ -57,9 +57,10 @@ function render() {
     } else if (board[idx] === -1) {
       num.textContent = "o";
     } else if (board[idx] === null) {
-      num.textContent = ''
+      num.textContent = "";
     }
   });
+  messageEl.textContent = `Player ${turn === 1 ? "1" : "2"}, your move`;
   if (winner === "T") {
     messageEl.textContent = "It's a tie! Play again?";
   } else if (winner === 1) {
@@ -70,7 +71,6 @@ function render() {
   if (winner !== null) {
     resetBtn.removeAttribute("hidden");
   }
-  messageEl.textContent = `Player ${turn === 1 ? "1" : "2"}, your move`;
 }
 
 function getWinner() {
@@ -79,19 +79,23 @@ function getWinner() {
       board[winningCombos[i][0]] +
         board[winningCombos[i][1]] +
         board[winningCombos[i][2]] ===
-      3
+        3 
     ) {
       return 1;
     } else if (
       board[winningCombos[i][0]] +
         board[winningCombos[i][1]] +
         board[winningCombos[i][2]] ===
-      -3
+      -3 
     ) {
       return -1;
+    } else if (board.includes(null) === false) {
+      return 'T'
     }
   }
+
   return null;
+  render()
 }
 
 function reset() {
