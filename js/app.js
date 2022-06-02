@@ -48,30 +48,31 @@ function init() {
   messageEl.textContent = "Player 1, start the game!";
 }
 
-// function handleClick(evt) {
-//   turn *= -1;
-//   messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
-//   render();
-//   console.log(turn);
-//   console.log("click");
-// }
-
 function handleClick(evt) {
-  // let sqIdx = evt.target.id.
-  if (board[sqIdx] !== null || winner !== null) {
-      return
-  }
-  turn *= -1
+  console.log(evt.target.id)
   messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
-  winner = getWinner()
-  render()
+  // if (board[sqIdx] !== null || winner !== null) {
+  //     return
+  // }
+  render();
+  console.log(turn);
+  console.log("click");
+  turn *= -1;
 }
+
+// function handleClick(evt) {
+//   let sqIdx = evt.target.id.substring
+//   turn *= -1
+//   messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
+//   winner = getWinner()
+//   render()
+// }
 
 function render() {
   tttBoard.forEach(function (element, idx) {
-    if (turn === 1) {
+    if (element === 1) {
       squareEls[idx].textContent = "X";
-    } else {
+    } else if (element === -1) {
       squareEls[idx].textContent = "O";
     }
   });
@@ -87,25 +88,24 @@ function render() {
   }
 }
 
-// function getWinner() {
-//   winningCombos.forEach((combo) => {
-//     // find the sum of the values within the board array at indices 0, 1, and 2 of the combo
-//     // if the absolute value of the sum is 3, there's a winner
-//     // because you're tracking the turn, you can determine the winner using that variable, which is all you need to return
-//   });
-// }
-
 function getWinner() {
-    
-  for (let i=0; i < winningCombos.length; i++) {
-      if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3) {
-          return 1
-      } else  if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
-          return -1
-      } 
-  }
-  return null
+  winningCombos.forEach((combo) => {
+    // find the sum of the values within the board array at indices 0, 1, and 2 of the combo
+    // if the absolute value of the sum is 3, there's a winner
+    // because you're tracking the turn, you can determine the winner using that variable, which is all you need to return
+  });
 }
+
+// function getWinner() {
+//   for (let i=0; i < winningCombos.length; i++) {
+//       if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === 3) {
+//           return 1
+//       } else  if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
+//           return -1
+//       } 
+//   }
+//   return null
+// }
 
 function reset() {
   init();
