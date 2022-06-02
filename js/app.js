@@ -35,17 +35,16 @@ function init() {
   render();
   console.log("Game loaded");
   // messageEl.textContent = "Player 1, start the game!";
-  messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
+  messageEl.textContent = `Player ${turn === 1 ? '1' : '2'}, your move`;
 }
 
 function handleClick(evt) {
   let sqIdx = parseInt(evt.target.id.substring(2))
   tttBoard[sqIdx] = turn;
-  // if (evt[sqIdx] == null || winner !== null) {
+  // if (evt[sqIdx] !== null || winner !== null) {
   //     return null
   // }
   render();
-  console.log(turn);
   console.log(tttBoard[sqIdx]);
   console.log(tttBoard);
   turn *= -1;
@@ -79,6 +78,7 @@ function render() {
   if (winner != null) {
     resetBtn.removeAttribute("hidden");
   }
+  messageEl.textContent = `Player ${turn === -1 ? '1' : '2'}, your move`;
 }
 
 function getWinner() {
@@ -102,6 +102,7 @@ function getWinner() {
 
 function reset() {
   init();
+  tttBoard = [null, null, null, null, null, null, null, null, null]
   resetBtn.setAttribute("hidden", true);
 }
 
@@ -109,4 +110,3 @@ init();
 
 console.log(winner);
 console.log(turn);
-console.log(squareEls);
