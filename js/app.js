@@ -14,17 +14,6 @@ const winningCombos = [
 /*---------------------------- Variables (state) ----------------------------*/
 let tttBoard, turn, winner;
 
-// let sq0, sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8
-// sq0 = document.getElementById("sq0").value
-// sq1 = document.getElementById("sq1").value
-// sq2 = document.getElementById("sq2").value
-// sq3 = document.getElementById("sq3").value
-// sq4 = document.getElementById("sq4").value
-// sq5 = document.getElementById("sq5").value
-// sq6 = document.getElementById("sq6").value
-// sq7 = document.getElementById("sq7").value
-// sq8 = document.getElementById("sq8").value
-
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll(".cell");
 const resetBtn = document.getElementById("reset-btn");
@@ -45,19 +34,22 @@ function init() {
   turn = 1;
   render();
   console.log("Game loaded");
-  messageEl.textContent = "Player 1, start the game!";
+  // messageEl.textContent = "Player 1, start the game!";
+  messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
 }
 
 function handleClick(evt) {
-  console.log(evt.target.id)
-  messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
-  // if (board[sqIdx] !== null || winner !== null) {
-  //     return
+  let sqIdx = parseInt(evt.target.id.substring(2))
+  tttBoard[sqIdx] = turn;
+  // if (evt[sqIdx] == null || winner !== null) {
+  //     return null
   // }
   render();
   console.log(turn);
-  console.log("click");
+  console.log(tttBoard[sqIdx]);
+  console.log(tttBoard);
   turn *= -1;
+  console.log(evt.target.id.substring(2))
 }
 
 // function handleClick(evt) {
@@ -69,12 +61,13 @@ function handleClick(evt) {
 // }
 
 function render() {
-  tttBoard.forEach(function (element, idx) {
-    if (element === 1) {
-      squareEls[idx].textContent = "X";
-    } else if (element === -1) {
-      squareEls[idx].textContent = "O";
+  squareEls.forEach(function (num, idx) {
+    if (tttBoard[idx] === 1) {
+      num.textContent = "X";
+    } else if (tttBoard[idx] === -1) {
+      num.textContent = "O";
     }
+    // console.log(tttBoard[num].textContent)
   });
   if (winner === "T") {
     messageEl.textContent = "It's a tie! Play again?";
@@ -102,14 +95,14 @@ function getWinner() {
 //           return 1
 //       } else  if (board[winningCombos[i][0]] + board[winningCombos[i][1]] + board[winningCombos[i][2]] === -3) {
 //           return -1
-//       } 
+//       }
 //   }
 //   return null
 // }
 
 function reset() {
   init();
-  resetBtn.setAttribute('hidden', true)
+  resetBtn.setAttribute("hidden", true);
 }
 
 init();
