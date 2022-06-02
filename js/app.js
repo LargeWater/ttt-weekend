@@ -27,8 +27,8 @@ let tttBoard, turn, winner;
 
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll(".cell");
-// const resetBtn = document.getElementById('reset-btn')
-
+const resetBtn = document.getElementById('reset-btn')
+const board = document.querySelector('div.cell')
 let messageEl = document.getElementById("message");
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -36,9 +36,7 @@ let messageEl = document.getElementById("message");
 document.querySelector("section.board").addEventListener("click", handleClick);
 
 // get click from start/reset
-// resetBtn.addEventListener('click', function(event){
-//   //
-// })
+resetBtn.addEventListener('click', reset)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -47,28 +45,29 @@ function init() {
   turn = 1;
   render();
   console.log("Game loaded");
-  messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
+  messageEl.textContent = 'Player 1, start the game!'
 }
 
 function handleClick(evt) {
-  // tttBoard.addEventListener('click', handleClick)
-  if (tttBoard[idx] !== null) {
-    return;
-  }
-  turn *= -1;
-  render();
-  console.log(turn);
-  console.log("click");
+  
+  turn *= -1
+  messageEl.textContent = `Player ${turn === 1 ? 1 : 2}, your move`;
+  render()
+  console.log(turn)
+  console.log("click")
 }
 
 function render() {
-  let sqIndex;
   tttBoard.forEach(function (element, idx) {
     if (turn === 1) {
       // code to access the element at the matching index in the squareEls array and set it's textContent to 'X'
+      squareEls[idx].textContent = 'X'
     } else {
       // code to access the element at the matching index in the squareEls array and set it's textContent to 'O'
+      squareEls[idx].textContent= 'O'
     }
+
+
   });
   if (winner === "T") {
     messageEl.textContent = "It's a tie! Play again?";
@@ -77,14 +76,14 @@ function render() {
   } else if (winner === -1) {
     messageEl.textContent = "Congratulations! Player 2 has won!";
   }
-  if (winner === 1 || winner === -1 || winner === "T") {
+  if (winner!= null) {
     resetBtn.removeAttribute("hidden");
   }
 }
 
-// function reset() {
+function reset() {
 
-// }
+}
 
 init();
 
