@@ -58,20 +58,27 @@ function render() {
       num.style.backgroundColor = "antiquewhite";
     } else if (board[idx] === null) {
       num.textContent = "";
-      num.style.backgroundColor = 'rgb(77, 137, 84)'
+      num.style.backgroundColor = "#477662";
     }
   });
   messageEl.textContent = `Player ${turn === 1 ? "1" : "2"}, your move`;
-  if (winner === "T") {
-    messageEl.textContent = "It's a tie! Play again?";
-  } else if (winner === 1) {
+  if (winner === 1) {
     messageEl.textContent = "Congratulations! Player 1 has won!";
+    squareEls.forEach(function (num) {
+      num.style.backgroundColor = "black";
+    });
   } else if (winner === -1) {
     messageEl.textContent = "Congratulations! Player 2 has won!";
+    squareEls.forEach(function (num) {
+      num.style.backgroundColor = "antiquewhite";
+    });
+  } else if (winner === 'T') {
+    messageEl.textContent = "It's a tie! Play again?";
   }
   if (winner !== null) {
     resetBtn.removeAttribute("hidden");
   }
+  console.log(winner)
 }
 
 function getWinner() {
@@ -80,23 +87,22 @@ function getWinner() {
       board[winningCombos[i][0]] +
         board[winningCombos[i][1]] +
         board[winningCombos[i][2]] ===
-        3 
+      3
     ) {
       return 1;
     } else if (
       board[winningCombos[i][0]] +
         board[winningCombos[i][1]] +
         board[winningCombos[i][2]] ===
-      -3 
+      -3
     ) {
       return -1;
-    } else if (board.includes(null) === false) {
-      return 'T'
     }
   }
-
+  if (board.includes(null) === false) {
+    return "T";
+  }
   return null;
-  render()
 }
 
 function reset() {
