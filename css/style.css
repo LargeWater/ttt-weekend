@@ -10,7 +10,11 @@ body {
   justify-content: center;
   text-align: center;
 }
-
+body:hover{
+  transition-property: background-color;
+  background-color: #3A5E4F;
+  transition-duration: 90s;
+}
 section.board {
   display: grid;
   grid-template-rows: repeat(3, 13vmin);
@@ -28,6 +32,19 @@ div {
   transition-property: background-color;
   transition-duration: 0.4s;
 }
+div:hover{
+  animation-name: scale;
+  animation-duration: 1s;
+}
+@keyframes scale {
+  0%{
+    transform: scale(0.9);}
+  100%{
+    transform: scale(1);
+  }
+
+}
+
 #reset-btn {
   height: 2vh;
   justify-content: center;
