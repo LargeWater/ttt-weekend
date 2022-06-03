@@ -55,7 +55,7 @@ function render() {
       num.style.backgroundColor = "#fef4e6";
     } else if (board[idx] === null) {
       num.textContent = "";
-      num.style.backgroundColor = "#477662";
+      num.style.backgroundColor = "#6AA48B";
     }
   });
   messageEl.textContent = `${turn === 1 ? "Black" : "White"}, your move`;
