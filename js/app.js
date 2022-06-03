@@ -69,13 +69,14 @@ function render() {
     squareEls.forEach(function (num) {
       num.style.backgroundColor = "antiquewhite";
     });
-  } else if (winner === 'T') {
-    messageEl.textContent = "One of the easiest games of all time and you both";
+  } else if (winner === "T") {
+    messageEl.textContent =
+      "One of the easiest games of all time and you both lost";
   }
   if (winner !== null) {
     resetBtn.removeAttribute("hidden");
   }
-  console.log(winner)
+  console.log(winner);
 }
 
 function getWinner() {
