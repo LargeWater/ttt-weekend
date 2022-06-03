@@ -20,13 +20,11 @@ const resetBtn = document.getElementById("reset-btn");
 let messageEl = document.getElementById("message");
 
 /*----------------------------- Event Listeners -----------------------------*/
-// get click from boxes
-// document.querySelector("section.board").addEventListener("click", handleClick);
 
 squareEls.forEach((square) => {
   square.addEventListener("click", handleClick);
 });
-// get click from start/reset
+
 resetBtn.addEventListener("click", reset);
 
 /*-------------------------------- Functions --------------------------------*/
@@ -36,7 +34,6 @@ function init() {
   turn = 1;
   winner = null;
   console.log("Game loaded");
-  // messageEl.textContent = "Player 1, start the game!";
   messageEl.textContent = `Player 1, your move`;
   render();
 }
@@ -61,19 +58,19 @@ function render() {
       num.style.backgroundColor = "#477662";
     }
   });
-  messageEl.textContent = `Player ${turn === 1 ? "1" : "2"}, your move`;
+  messageEl.textContent = `${turn === 1 ? "Black" : "White"}, your move`;
   if (winner === 1) {
-    messageEl.textContent = "Congratulations! Player 1 has won!";
+    messageEl.textContent = "Black takes the game";
     squareEls.forEach(function (num) {
       num.style.backgroundColor = "black";
     });
   } else if (winner === -1) {
-    messageEl.textContent = "Congratulations! Player 2 has won!";
+    messageEl.textContent = "White takes the game";
     squareEls.forEach(function (num) {
       num.style.backgroundColor = "antiquewhite";
     });
   } else if (winner === 'T') {
-    messageEl.textContent = "It's a tie! Play again?";
+    messageEl.textContent = "One of the easiest games of all time and you both";
   }
   if (winner !== null) {
     resetBtn.removeAttribute("hidden");
@@ -106,7 +103,6 @@ function getWinner() {
 }
 
 function reset() {
-  // board = [null, null, null, null, null, null, null, null, null];
   init();
   resetBtn.setAttribute("hidden", true);
 }
