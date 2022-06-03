@@ -52,7 +52,7 @@ function render() {
     if (board[idx] === 1) {
       num.style.backgroundColor = "black";
     } else if (board[idx] === -1) {
-      num.style.backgroundColor = "antiquewhite";
+      num.style.backgroundColor = "#fef4e6";
     } else if (board[idx] === null) {
       num.textContent = "";
       num.style.backgroundColor = "#477662";
@@ -67,7 +67,7 @@ function render() {
   } else if (winner === -1) {
     messageEl.textContent = "White takes the game";
     squareEls.forEach(function (num) {
-      num.style.backgroundColor = "antiquewhite";
+      num.style.backgroundColor = "#fef4e6";
     });
   } else if (winner === "T") {
     messageEl.textContent =

@@ -13,7 +13,7 @@ body {
 body:hover{
   transition-property: background-color;
   background-color: #3A5E4F;
-  transition-duration: 90s;
+  transition-duration: 120s;
 }
 section.board {
   display: grid;
@@ -48,19 +48,19 @@ div:hover{
 #reset-btn {
   height: 2vh;
   justify-content: center;
-  background-color: rgb(43, 65, 106);
-  color: rgb(202, 227, 255);
+  background-color: rgb(186, 69, 69);
+  color: rgb(224, 237, 253);
   font-size: 100%;
   font-weight: 100;
   margin: 40px 20vh;
 }
 h1 {
-  font-family: Verdana;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
 h2{
   font-family: system-ui;
-  font-weight: 600;
+  font-weight: 500;
 }
 #helper-text {
   font-weight: 300;
