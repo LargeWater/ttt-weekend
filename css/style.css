@@ -1,5 +1,5 @@
 body {
-  background-color: #6AA48B;
+  background-color: #6aa48b;
   /* Use a system font, if none are available use an available sans-sarif   font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -10,10 +10,10 @@ body {
   justify-content: center;
   text-align: center;
 }
-body:hover{
+body:hover {
   transition-property: background-color;
-  background-color: #3A5E4F;
-  transition-duration: 180s;
+  background-color: #3a5e4f;
+  transition-duration: 90s;
 }
 section.board {
   display: grid;
@@ -32,33 +32,33 @@ div {
   transition-property: background-color;
   transition-duration: 0.4s;
 }
-div:hover{
+div:hover {
   animation-name: scale;
   animation-duration: 1s;
 }
 @keyframes scale {
-  0%{
-    transform: scale(0.9);}
-  100%{
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
     transform: scale(1);
   }
-
 }
 
 #reset-btn {
   height: 2vh;
   justify-content: center;
-  background-color: rgb(186, 69, 69);
+  background-color: rgb(191, 91, 91);
   color: rgb(224, 237, 253);
   font-size: 100%;
   font-weight: 100;
-  margin: 40px 20vh;
+  margin: 40px 40%;
 }
 h1 {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 500;
 }
-h2{
+h2 {
   font-family: system-ui;
   font-weight: 500;
 }
@@ -78,3 +78,9 @@ h2{
     border: 4px ridge rgb(248, 238, 156);
   }
 }
+
+/* @media only screen and (min-width: 1024px) {
+  #reset-btn {
+    margin: 40px 40%;
+  }
+} */

@@ -70,13 +70,12 @@ function render() {
       num.style.backgroundColor = "#fef4e6";
     });
   } else if (winner === "T") {
-    messageEl.textContent =
-      "One of the easiest games of all time and you both lost";
+    messageEl.innerHTML =
+      `One of the easiest games of <br>all time and you both lost`;
   }
   if (winner !== null) {
     resetBtn.removeAttribute("hidden");
   }
-  console.log(winner);
 }
 
 function getWinner() {
