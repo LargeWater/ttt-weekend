@@ -1,5 +1,5 @@
 body {
-  background-color: #6aa48b;
+  background-color: #5e937c;
   /* Use a system font, if none are available use an available sans-sarif   font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -10,11 +10,11 @@ body {
   justify-content: center;
   text-align: center;
 }
-body:hover {
+/* body:hover {
   transition-property: background-color;
   background-color: #3a5e4f;
   transition-duration: 90s;
-}
+} */
 section.board {
   display: grid;
   grid-template-rows: repeat(3, 13vmin);
@@ -25,7 +25,7 @@ section.board {
 }
 
 div {
-  border: 12px ridge rgb(248, 238, 156);
+  /* border: 8px ridge rgb(248, 238, 156); */
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
@@ -49,25 +49,25 @@ div:hover {
   height: 2vh;
   justify-content: center;
   background-color: rgb(191, 91, 91);
-  color: rgb(224, 237, 253);
+  color: rgb(224, 247, 253);
   font-size: 100%;
-  font-weight: 100;
+  font-weight: 400;
+  letter-spacing: 4px;
+  font-family: 'Quicksand', sans-serif;
   margin: 40px 40%;
 }
 h1 {
   font-family: "Quicksand", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 6px;
 }
 h2 {
-  font-family: system-ui;
+  font-family: 'Quicksand', sans-serif;
   font-weight: 500;
 }
-#helper-text {
-  font-weight: 300;
-  font-size: 3vmin;
-}
 
-@media only screen and (max-width: 1024px) {
+
+/* @media only screen and (max-width: 1024px) {
   div {
     border: 8px ridge rgb(248, 238, 156);
   }
@@ -75,7 +75,7 @@ h2 {
 
 @media only screen and (max-width: 768px) {
   div {
-    border: 4px ridge rgb(248, 238, 156);
+    border: 5px ridge rgb(248, 238, 156);
   }
-}
+} */
 

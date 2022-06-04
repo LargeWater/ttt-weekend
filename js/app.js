@@ -33,8 +33,6 @@ function init() {
   board = [null, null, null, null, null, null, null, null, null];
   turn = 1;
   winner = null;
-  console.log("Game loaded");
-  messageEl.textContent = `Player 1, your move`;
   render();
 }
 
@@ -50,7 +48,7 @@ function handleClick(evt) {
 function render() {
   squareEls.forEach(function (num, idx) {
     if (board[idx] === 1) {
-      num.style.backgroundColor = "black";
+      num.style.backgroundColor = "#151515";
     } else if (board[idx] === -1) {
       num.style.backgroundColor = "#fef4e6";
     } else if (board[idx] === null) {
@@ -62,7 +60,7 @@ function render() {
   if (winner === 1) {
     messageEl.textContent = "Black takes the game";
     squareEls.forEach(function (num) {
-      num.style.backgroundColor = "black";
+      num.style.backgroundColor = "#151515";
     });
   } else if (winner === -1) {
     messageEl.textContent = "White takes the game";
