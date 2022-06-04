@@ -55,6 +55,8 @@ div:hover {
   letter-spacing: 4px;
   font-family: 'Quicksand', sans-serif;
   margin: 40px 40%;
+  justify-content: center;
+  text-align: center;
 }
 h1 {
   font-family: "Quicksand", sans-serif;
